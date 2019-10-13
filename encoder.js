@@ -1,7 +1,7 @@
 // convert ascii text to binary
 function textToBinary(clicked_id) 
 {
-    var  output = document.getElementById("outputBox");  
+    //var  output = document.getElementById("outputBox");  
     var input = document.getElementById("inputBox").value;
     var binaryValue = "";
 
@@ -25,7 +25,7 @@ function textToBinary(clicked_id)
     }
 
     binaryValue = output.join("");
-    console.log(binaryValue);
+    console.log("binary value of ascii: " + binaryValue);
 
     if(clicked_id == "dnaButton")
     {
@@ -104,3 +104,36 @@ function binaryToRNA(binaryString)
     output.value = dnaValue;
 }
 
+//Objective 4: DNA actually consists of two, complementary strands that are attached in such a way 
+// that every A matches T and G matches C (and the inverses).  
+// Given a complementary strand of DNA, output the ASCII equivalent of the primary strand.
+
+// function to convert complementary strand to primary strand DNA
+function getPrimaryStrand()
+{
+    var input = document.getElementById("complementaryInputBox").value;
+    console.log(input);
+    var chars = {'A':'T','T':'A','C':'G', 'G':'C'};
+    input = input.replace(/[ATGC]/g, m => chars[m]);
+    console.log("primary strand: " + input);
+
+    primaryToBinary(input);
+}
+
+function primaryToBinary(primaryStrand)
+{
+    var chars = {'A':'00','T':'01','C':'11', 'G':'10'};
+    var  output = document.getElementById("primaryOutputBox");
+    primaryStrand = primaryStrand.replace(/[ATGC]/g, m => chars[m]);
+    console.log(primaryStrand);
+
+    primaryStrand = primaryStrand.replace(/(\w{8})/g, '$1 ').replace(/(^\s+|\s+$)/,'');
+    var binString = '';
+
+    primaryStrand.split(" ").map(function(bin) 
+    {
+        binString += String.fromCharCode(parseInt(bin, 2));
+    });
+
+    output.value = binString;
+}
