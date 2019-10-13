@@ -18,9 +18,11 @@
 
     <div>
         <input id="inputBox" value =""/>
+        <!-- <textarea name="text" rows="14" cols="10" wrap="soft"> </textarea> -->
     </div>
 
-    <button onclick="textToBinary();">Convert!</button>
+    <button id="dnaButton" onclick="textToBinary(this.id);">Convert to DNA!</button>
+    <button id="rnaButton" onclick="textToBinary(this.id);">Convert to RNA!</button>
 
     <div>
         <input id="outputBox"/>
