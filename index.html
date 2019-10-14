@@ -14,31 +14,50 @@
   </head>
 
   <body>
+    <!-- Objective 1 -->
     <h2>Enter Text to convert to DNA string</h1>
-
     <div>
-        <input id="inputBox" value =""/>
-        <!-- <textarea name="text" rows="14" cols="10" wrap="soft"> </textarea> -->
+        <!-- <input id="inputBox" value =""/> -->
+        <textarea id="inputBox" value=""></textarea>
     </div>
 
     <button id="dnaButton" onclick="textToBinary(this.id);">Convert to DNA!</button>
     <button id="rnaButton" onclick="textToBinary(this.id);">Convert to RNA!</button>
 
     <div>
-        <input id="outputBox"/>
+        <!-- <input id="outputBox"/> -->
+        <textarea id="outputBox" value="" readonly></textarea>
     </div>
     
-    <h2 id="complementary">Enter complementary strand to get ASCII equivalent of the primary strand</h1>
+
+    <!-- Objective 4 -->
+    <h2 id="complementaryBox">Enter complementary strand to get ASCII equivalent of the primary strand</h1>
     <div>
-        <input id="complementaryInputBox" value =""/>
-        <!-- <textarea name="text" rows="14" cols="10" wrap="soft"> </textarea> -->
+        <textarea id="complementaryInputBox" value=""></textarea>
     </div>
 
     <button id="complementaryButton" onclick="getPrimaryStrand();">Convert!</button>
 
     <div>
-        <input id="primaryOutputBox"/>
+        <textarea id="primaryOutputBox" value="" readonly></textarea>
     </div>
+
+    <!-- Objective 5 -->
+    <h2 id="complementaryBox">Enter two DNA strands to get the longest common subsequence of the two. </h1>
+    <div style="float:left;">
+        <textarea id="lcsInputbox1" value=""></textarea>
+        <textarea id="lcsInputbox2" value=""></textarea>
+    </div>
+
+    <div style="clear:both;">
+      <button id="complementaryButton" onclick="getDnaStrings();">Convert!</button>
+    </div>
+    
+    <div id = "subBox">
+        <textarea id="subsequenceOutputBox" value="" readonly></textarea>
+    </div>
+
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
