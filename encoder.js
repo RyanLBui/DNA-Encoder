@@ -104,6 +104,31 @@ function binaryToRNA(binaryString)
     output.value = dnaValue;
 }
 
+// Objective 3: Provide an interface for identifying standard ASCII text substrings encoded as DNA; 
+// the interface should provide the zero-based index where the substring begins or -1 if it does not exist.
+function findSubstring()
+{
+    var dnaInput = document.getElementById("substringInputbox1").value;
+    var substringInput = document.getElementById("substringInputbox2").value;
+    var output = document.getElementById("substringOutputBox");
+    var asciiValue = primaryToBinary(dnaInput);
+    var substringText;
+    var startIndex;
+
+    if(asciiValue.includes(substringInput) && substringInput != 0)
+    {
+        startIndex = asciiValue.indexOf(substringInput);
+        substringText = "Substring begins at index: " + startIndex;
+    }
+    else
+    {
+        substringText = "-1 Substring does not exist";
+    }
+
+    output.value = "ASCII equivalent of DNA strand: " + primaryToBinary(dnaInput) + "\n" + substringText;
+}
+
+
 //Objective 4: DNA actually consists of two, complementary strands that are attached in such a way 
 // that every A matches T and G matches C (and the inverses).  
 // Given a complementary strand of DNA, output the ASCII equivalent of the primary strand.
@@ -112,19 +137,18 @@ function binaryToRNA(binaryString)
 function getPrimaryStrand()
 {
     var input = document.getElementById("complementaryInputBox").value;
+    var  output = document.getElementById("primaryOutputBox");
     console.log(input);
     var chars = {'A':'T','T':'A','C':'G', 'G':'C'};
     input = input.replace(/[ATGC]/g, m => chars[m]);
     console.log("primary strand: " + input);
 
-    primaryToBinary(input);
+    output.value = primaryToBinary(input);
 }
 
 // turn primary strand to binary, then turn from binary to ascii
 function primaryToBinary(primaryStrand)
 {
-    var  output = document.getElementById("primaryOutputBox");
-
     // replace dna letters with binary numbers
     var chars = {'A':'00','T':'01','C':'11', 'G':'10'};
     primaryStrand = primaryStrand.replace(/[ATGC]/g, m => chars[m]);
@@ -137,8 +161,8 @@ function primaryToBinary(primaryStrand)
     {
         binString += String.fromCharCode(parseInt(bin, 2));
     });
-    
-    output.value = binString;
+
+    return binString;
 }
 
 function getDnaStrings()
@@ -174,6 +198,8 @@ function commonSubsequence(dna1, dna2)
     }
 }
 
+// objective 5
+// https://github.com/trekhleb/
 function longestCommonSubsequence(set1, set2) 
 {
     var output = document.getElementById("subsequenceOutputBox");
@@ -208,17 +234,8 @@ function longestCommonSubsequence(set1, set2)
                 lcsMatrix[rowIndex][columnIndex - 1],
                 );
             }
+        }
     }
-}
-
-    // Calculate LCS based on LCS matrix.
-    if (!lcsMatrix[set2.length][set1.length]) 
-    {
-        // If the length of largest common string is zero then return empty string.
-        //return [''];
-        output.value = "No common subsequence";
-    }
-
     const longestSequence = [];
     let columnIndex = set1.length;
     let rowIndex = set2.length;
