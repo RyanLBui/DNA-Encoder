@@ -6,6 +6,12 @@ DNA is a very stable and compact storage medium.  The language of DNA consists o
 
 http://htmlpreview.github.io/?https://github.com/RyanLBui/DNA-Encoder/blob/master/index.html
 
+or 
+
+1. Copy repository to your computer. git clone https://github.com/RyanLBui/DNA-Encoder
+2. cd .\DNA-Encoder\
+3. start index.html
+
 ### Built With
 * HTML
 * JavaScript
