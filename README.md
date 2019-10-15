@@ -17,11 +17,13 @@ or
 * JavaScript
 * CSS
 
-### Tests
-Given examples for objective 1:
+### Example Tests
+Objective 1:
 <ul>
-<li>Input: a, Output: TGAT</li>
-<li>Input: cat, Output: TGACTGATTCTA</li>
+<li>(Given Example) Input: a, Output: TGAT</li>
+<li>(Given Example) Input: cat, Output: TGACTGATTCTA</li>
+<li>Input: aA, Output: TGATTAAT</li>
+<li>Input: aaa, Output: TGATTGATTGAT</li>
 </ul>
 
 Objective 2:  
@@ -29,14 +31,22 @@ Objective 2:
 <ul>
 <li>Input: a, Output: UGAU</li>
 <li>Input: cat, Output: UGACUGAUUCUA</li>
+<li>Input: aA, Output: UGAUUAAU</li>
+<li>Input: aaa, Output: UGAUUGAUUGAU</li>
 </ul>
 
 Objective 3:  
 <ul>
 <li>First Input: TGAT, Second Input: a, Output: ASCII equivalent of DNA strand: a  
 Substring begins at index: 0 </li>
+<li>First Input: TGACTGATTCTA, Second Input: c ,Output: ASCII equivalent of DNA strand: cat
+Substring begins at index: 0 </li>
 <li>First Input: TGACTGATTCTA, Second Input: a ,Output: ASCII equivalent of DNA strand: cat
 Substring begins at index: 1 </li>
+<li>First Input: TGACTGATTCTA, Second Input: t ,Output: ASCII equivalent of DNA strand: cat
+Substring begins at index: 2 </li>
+<li>First Input: TGACTGATTCTA, Second Input: r ,Output: ASCII equivalent of DNA strand: cat
+-1 Substring does not exist </li>
 </ul>
 
 Given examples for objective 4:
@@ -47,4 +57,6 @@ Given examples for objective 4:
 Objective 5:
 <ul>
 <li>Input 1: TGAT, Input 2:  TGACTGATTCTA, Output: TGAT</li>
+<li>Input 1: TGACTGATTCTA, Input 2:  TCTTAAAA, Output: TCTAA</li>
+<li>Input 1: TGAT, Input 2:  ZQWER, Output: No common subsequence</li>
 </ul>
