@@ -18,3 +18,33 @@ or
 * CSS
 
 ### Tests
+Given examples for objective 1:
+<ul>
+<li>Input: a, Output: TGAT</li>
+<li>Input: cat, Output: TGACTGATTCTA</li>
+</ul>
+
+Objective 2:  
+// checking if correct by using examples given for obj 1
+<ul>
+<li>Input: a, Output: UGAU</li>
+<li>Input: cat, Output: UGACUGAUUCUA</li>
+</ul>
+
+Objective 3:  
+<ul>
+<li>First Input: TGAT, Second Input: a, Output: ASCII equivalent of DNA strand: a  
+Substring begins at index: 0 </li>
+<li>First Input: TGACTGATTCTA, Second Input: a ,Output: ASCII equivalent of DNA strand: cat
+Substring begins at index: 1 </li>
+</ul>
+
+Given examples for objective 4:
+<ul>
+<li>Input: ACTGACTAAGAT, Output: cat</li>
+</ul>
+
+Objective 5:
+<ul>
+<li>Input 1: TGAT, Input 2:  TGACTGATTCTA, Output: TGAT</li>
+</ul>
