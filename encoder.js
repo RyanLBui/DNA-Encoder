@@ -1,21 +1,8 @@
 // convert ascii text to binary
 function textToBinary(clicked_id) 
-{
-    //var  output = document.getElementById("outputBox");  
+{  
     var input = document.getElementById("inputBox").value;
     var binaryValue = "";
-
-    // convert text to binary
-    // for (i=0; i < input.length; i++) 
-    // {
-    //     binaryValue += input[i].charCodeAt(0).toString(2);
-    // }
-
-    // // left padding for binary value if needed
-    // while(binaryValue.length < 8)
-    // {
-    //     binaryValue = "0" + binaryValue;
-    // }
 
     var length = input.length, output = [];
     for (var i = 0;i < length; i++) 
@@ -25,7 +12,7 @@ function textToBinary(clicked_id)
     }
 
     binaryValue = output.join("");
-    console.log("binary value of ascii: " + binaryValue);
+    //console.log("binary value of ascii: " + binaryValue);
 
     if(clicked_id == "dnaButton")
     {
@@ -34,6 +21,7 @@ function textToBinary(clicked_id)
     }
     else if (clicked_id == "rnaButton")
     {
+        // call function to convert to rna
         binaryToRNA(binaryValue);
     }
 }
@@ -47,6 +35,7 @@ function binaryToDNA(binaryString)
 {
     var  output = document.getElementById("outputBox");
     var dnaValue = "";
+    // split string into array of strings with length of 2
     var splitBinaryString = binaryString.match(/.{1,2}/g);
     
     for(i=0;i < splitBinaryString.length; i++)
@@ -79,6 +68,7 @@ function binaryToRNA(binaryString)
 {
     var  output = document.getElementById("outputBox");
     var dnaValue = "";
+    //split string into array of strings with length of 2
     var splitBinaryString = binaryString.match(/.{1,2}/g);
     
     for(i=0;i < splitBinaryString.length; i++)
@@ -111,13 +101,17 @@ function findSubstring()
     var dnaInput = document.getElementById("substringInputbox1").value;
     var substringInput = document.getElementById("substringInputbox2").value;
     var output = document.getElementById("substringOutputBox");
+
+    // call function to get ascii text
     var asciiValue = primaryToBinary(dnaInput);
     var substringText;
     var startIndex;
 
+    // check if there is substring
     if(asciiValue.includes(substringInput) && substringInput != 0)
     {
         startIndex = asciiValue.indexOf(substringInput);
+        // get index of substring
         substringText = "Substring begins at index: " + startIndex;
     }
     else
@@ -138,10 +132,11 @@ function getPrimaryStrand()
 {
     var input = document.getElementById("complementaryInputBox").value;
     var  output = document.getElementById("primaryOutputBox");
-    console.log(input);
+
     var chars = {'A':'T','T':'A','C':'G', 'G':'C'};
+    // replace the letters to get complementary strand
     input = input.replace(/[ATGC]/g, m => chars[m]);
-    console.log("primary strand: " + input);
+    //console.log("primary strand: " + input);
 
     output.value = primaryToBinary(input);
 }
@@ -165,6 +160,7 @@ function primaryToBinary(primaryStrand)
     return binString;
 }
 
+// function to get inputs from input boxes
 function getDnaStrings()
 {
     var dna1 = document.getElementById("lcsInputbox1").value;
@@ -175,6 +171,7 @@ function getDnaStrings()
     longestCommonSubsequence(dna1, dna2);
 }
 
+// objective 5 get common subsequence
 function commonSubsequence(dna1, dna2)
 {
     var output = document.getElementById("subsequenceOutputBox");
